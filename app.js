@@ -26,20 +26,31 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 //insert
-var obj = {
-  nombre: 'Carlos',
-  apellido: 'Lopez',
-  trabajo: 'docente',
-  edad: 38,
-  salario: 15000,
-  mail: 'juanlopez@gmail.com'
+// var obj = {
+//   nombre: 'Carlos',
+//   apellido: 'Lopez',
+//   trabajo: 'docente',
+//   edad: 38,
+//   salario: 15000,
+//   mail: 'juanlopez@gmail.com'
   
+// }
+
+// pool.query('insert into empleados set ?', [obj]).then(function
+//   (resultados) {
+//   console.log(resultados)
+// });
+
+var id = 22
+var obj = {
+  nombre: 'Pablo',
+  apellido: 'Gomez'
 }
 
-pool.query('insert into empleados set ?', [obj]).then(function
-  (resultados) {
-  console.log(resultados)
-});
+pool.query('update empleados set? where id_emp=?' , [obj, id]). then
+(function(resultados){
+  console.log(resultados);
+})
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
